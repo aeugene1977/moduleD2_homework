@@ -1,0 +1,13 @@
+<!--  наследуемся от шаблона base.html -->
+{% extends 'layout/default.html' %}
+{% load custom_filters %}
+<!-- Название у нас будет proudcts -->
+{% block title %}
+Новость
+{% endblock title %}
+<!-- В контенте на странице мы выводим сам продукт, первичный ключ которого был передан в адрес -->
+{% block content %}
+<h1>{{ new.title|censor }}</h1>
+<h3>Дата публикации: {{ new.dateCreation|date:'d M Y, H:i' }}</h3>
+<p>{{ new.text|censor }}</p>
+{% endblock content %}
